@@ -165,7 +165,7 @@ if (have_posts()) {
                                     type="button"
                                     class="btn btn-outline-primary btn-detalii"
                                 >
-                                    Detalii
+                                    Detalii programari
                                 </button>
 
                             </div>
