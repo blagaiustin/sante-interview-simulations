@@ -133,7 +133,7 @@ if (have_posts()) {
                                     type="button"
                                     class="btn btn-outline-primary btn-detalii"
                                 >
-                                    Vezi detalii
+                                    Vezi mai multe detalii
                                 </button>
 
                             </div>
