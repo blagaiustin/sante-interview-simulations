@@ -133,7 +133,7 @@ if (have_posts()) {
                                     type="button"
                                     class="btn btn-outline-primary btn-detalii"
                                 >
-                                    Detalii
+                                    Vezi detalii
                                 </button>
 
                             </div>
@@ -437,7 +437,7 @@ if (have_posts()) {
             ?>
 
         </main>
-        
+
     <?php
     }
 }

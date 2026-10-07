@@ -425,4 +425,22 @@ jQuery(document).ready(function($) {
         descriere.toggle();
     });
 
+    /*
+    Ce trebuie să reții din jQuery pentru nivelul tău este foarte puțin:
+
+    $('#id')              // selectează după id
+    $('.clasa')           // selectează după clasă
+    $(this)               // elementul care a declanșat eventul
+
+    .on('click', ...)
+    .on('submit', ...)
+    .on('change', ...)
+
+    .val()                // citește/scrie valoarea unui input/select
+    .text()               // text
+    .toggle()             // show/hide
+    .find()               // caută în interior
+    .closest()            // caută un părinte
+    */
+
 });
