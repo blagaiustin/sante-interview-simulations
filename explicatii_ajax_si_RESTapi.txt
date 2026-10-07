@@ -1,0 +1,75 @@
+tu = userul din browser
+butonul = acțiunea pe care vrei s-o declanșezi
+JavaScript = mesagerul
+PHP/WordPress = serverul care decide și execută
+baza de date = locul unde sunt datele
+răspunsul JSON = rezultatul trimis înapoi
+HTML-ul modificat = ce vezi tu pe pagină
+
+AJAX
+→ browserul tău vorbește cu WordPress
+→ prin admin-ajax.php
+→ bun pentru interacțiuni din interfața site-ului
+
+
+REST API
+→ WordPress expune niște URL-uri/endpoint-uri
+→ alte aplicații sau chiar JavaScript-ul pot cere date
+→ răspunsul vine de obicei JSON
+
+apeși butonul
+↓
+JavaScript vede click-ul
+↓
+trimite un request
+↓
+request-ul conține:
+- action = ce vrei să se execute
+- nonce = token de verificare
+↓
+WordPress primește request-ul
+↓
+apelează funcția PHP potrivită
+↓
+PHP verifică nonce-ul
+↓
+PHP verifică permisiunile
+↓
+PHP citește/calculază din baza de date
+↓
+trimite rezultatul ca JSON
+↓
+JavaScript primește rezultatul
+↓
+modifică HTML-ul
+↓
+tu vezi rezultatul fără refresh
+
+
+AJAX mecanism:
+
+Eu sunt clientul și am o interfață in fata, în cazul meu o pagină web. 
+Am acolo un buton care spune că ,dacă mă apeși vei afla câte adrese de e-mail sunt în total în baza noastră de date de pe acest site' 
+Apasam butonul. JavaScript-ul ia această comandă. 
+Comanda mea conține un action (adică faptul că vreau numărul de adresă de e-mail) și mai conține și un nonce (conține token-ul valid asociat acțiunii pe care aplicația l-a generat). 
+PHP-ul primește această comandă, vede ce permisiuni am și vede nonce-ul + permisiunile. 
+Dacă totul este în regulă, se duce în baza de date, numără adresele de email, ca să vadă numărul total. 
+Apoi treimite rezultatele ca fisier JSON
+JavaScript primeste rezultatul si modifica HTML-ul
+JavaScript pune datele într-un HTML ca eu să-l pot vedea înapoi în interfața (fara sa dau refresh la pagina) și îmi va părea numărul de e-mail-uri din baza noastră de date care au fost înregistrate pe acest site
+
+
+
+REST API mecanism:
+
+Eu sunt clientul și am în față o interfață, în cazul meu pagina web sau chiar Postman.
+Vreau să aflu emailul utilizatorului logat.
+În loc să trimit un action către admin-ajax.php, trimit un request HTTP direct către un endpoint (ca un link) REST, de exemplu:
+GET /wp-json/sante/v1/email-meu
+WordPress vede URL-ul și caută ruta pe care am înregistrat-o cu register_rest_route().
+Ruta spune că pentru acel URL și metoda GET trebuie mai întâi verificat permission_callback, adică dacă utilizatorul are voie să acceseze endpoint-ul.
+Dacă verificarea trece, WordPress execută callback-ul PHP asociat rutei.
+Callback-ul ia datele de care are nevoie în cazul nostru utilizatorul curent și emailul lui — și returnează un array PHP.
+WordPress transformă automat acel array într-un răspuns JSON și îl trimite înapoi clientului.
+Dacă clientul este JavaScript-ul din pagină, JavaScript citește JSON-ul și modifica HTML-ul fără refresh (la fel ca la ajax).
+Dacă clientul este Postman, văd direct răspunsul JSON în Postman.

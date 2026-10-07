@@ -1,0 +1,37 @@
+.beneficiu-card {
+    border-radius: 20px;
+    h3 {
+        color: #198754;
+    }
+    &:hover {
+        transform: translateY(-6px);
+    }
+}
+
+//Da. La tine nu se creează un fișier CSS nou de fiecare dată. 
+//Bootscore recompilă SCSS-ul și actualizează fișierul deja existent
+
+/*
+
+wp-content/
+└── themes/
+    └── bootscore-child/
+        └── assets/
+            ├── scss/
+            │   ├── main.scss
+            │   └── _bootscore-custom.scss   ← aici scrii tu
+            │
+            └── css/
+                └── main.css                 ← aici ajunge rezultatul compilat
+
+_bootscore-custom.scss
+        ↓
+este importat în main.scss
+        ↓
+Bootscore compilează SCSS-ul
+        ↓
+assets/css/main.css este regenerat
+        ↓
+browserul citește main.css
+
+*/
