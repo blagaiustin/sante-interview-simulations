@@ -1,0 +1,65 @@
+.noutati-row {
+    background-color: #f4acff;
+    border: 1px solid #f93131;
+}
+
+.row>.col-md-4:nth-child(1) .card {
+    background-color: #dbeafe;
+}
+
+.row>.col-md-4:nth-child(2) .card {
+    background-color: #dcfce7;
+}
+
+.row>.col-md-4:nth-child(3) .card {
+    background-color: #fef3c7;
+}
+
+.card {
+    border: 2px solid #333;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.soft-card {
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+    &:hover {
+        transform: translateY(-3px);
+    }
+}
+
+.formular-programare {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.formular-programare .form-control {
+    border-radius: 8px;
+}
+
+.formular-programare .form-select {
+    border-radius: 8px;
+}
+
+.formular-programare {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.mesaje-formular {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+.zona-informatii {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#mesaj-programare {
+    margin-top: 15px;
+}
