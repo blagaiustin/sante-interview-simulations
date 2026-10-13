@@ -1,0 +1,13 @@
+// Adauga acest bloc la SFARSITUL fisierului assets/scss/_bootscore-custom.scss.
+.sante-simulare {
+    .sante-serviciu-card,
+    .sante-articol-card {
+        border: 1px solid #d9e2e8;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+    .sante-serviciu-card .card-body,
+    .sante-articol-card .card-body {
+        padding: 20px;
+    }
+}
