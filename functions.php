@@ -30,3 +30,18 @@ function bootscore_child_enqueue_styles() {
   wp_enqueue_script('custom-js', get_stylesheet_directory_uri() . '/assets/js/custom.js', array('jquery'), $modificated_CustomJS, false, true);
 
 }
+
+add_action('wp_enqueue_scripts', 'sante_sim4_enqueue_script');
+function sante_sim4_enqueue_script() {
+    if (!is_page('pachete-pacienti')) {
+        return;
+    }
+    $fisier = get_stylesheet_directory() . '/assets/js/sante-sim4.js';
+    wp_enqueue_script(
+        'sante-sim4',
+        get_stylesheet_directory_uri() . '/assets/js/sante-sim4.js',
+        array('jquery'),
+        filemtime($fisier),
+        true
+    );
+}
